@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Cart, CartDetails } from "./Cart";
 
 const StyledNav = styled.nav`
   width: 100%;
@@ -19,16 +21,11 @@ const StyledNav = styled.nav`
   .navHome {
     font-size: 30px;
     font-weight: 700;
-    text-decoration: none;
   }
 
   .navLinks {
     font-size: 20px;
     margin: 10px;
-
-    * {
-      text-decoration: none;
-    }
 
     i {
       margin-right: 7px;
@@ -37,17 +34,22 @@ const StyledNav = styled.nav`
 `;
 
 function Nav(props) {
+  const { cartItems, total } = props;
+  const [expandCartView, setExpandCartView] = useState(false);
+
+  const handleExpandCart = () => {
+    setExpandCartView(!expandCartView);
+  };
+
   return (
     <StyledNav>
       <Link to="/" className="navHome">
         Galactic Visitor
       </Link>
       <div className="navLinks">
-        <Link to="/cart">
-          <i className="fas fa-rocket"></i>
-          <span>{props.items}</span>
-        </Link>
+        <Cart cartItems={cartItems} onExpandCart={handleExpandCart} />
       </div>
+      {expandCartView && <CartDetails cartItems={cartItems} total={total} />}
     </StyledNav>
   );
 }

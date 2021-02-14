@@ -12,11 +12,11 @@ function Tours(props) {
         <Route exact path={`${match.path}`}>
           {toursData.map((tour) => {
             return (
-              <Link to={`${match.url}/${tour.name}`}>
+              <Link key={uniqid()} to={`${match.url}/${tour.fileName}`}>
                 <TourCard
-                  key={uniqid()}
                   imageSrc={tour.imageFile}
                   tourName={tour.name}
+                  price={tour.price}
                 />
               </Link>
             );

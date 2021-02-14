@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import ItemQuantityForm from "./ItemQuantityForm";
 
 const TourDetailsDiv = styled.div`
   img {
@@ -9,12 +10,21 @@ const TourDetailsDiv = styled.div`
 
 function TourDetails(props) {
   let { tourName } = useParams();
-  let { toursData } = props;
-  const tourData = toursData.filter((tour) => tour.name === tourName)[0];
+  let { toursData, onAddToCart, onInputChanged } = props;
+  const tourData = toursData.filter((tour) => tour.fileName === tourName)[0];
+
   return (
     <TourDetailsDiv>
-      <h1> {tourData.nameFormatted}</h1>
+      <h1> {tourData.name}</h1>
       <img src={tourData.imageFile} alt=""></img>
+      <p>First-Class Ticket Price: {tourData.price}</p>
+      <p>Trip Distance: {tourData.distance}</p>
+      <p>{tourData.description}</p>
+      <ItemQuantityForm
+        onAddToCart={onAddToCart}
+        onInputChanged={onInputChanged}
+        tourData={tourData}
+      />
     </TourDetailsDiv>
   );
 }
