@@ -4,11 +4,21 @@ import { Route, Switch, Link, useRouteMatch } from "react-router-dom";
 import TourCard from "./TourCard";
 import uniqid from "uniqid";
 
+const ToursStyled = styled.div`
+  padding-top: 60px;
+  width: 100vw;
+  max-width: 750px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+
 function Tours(props) {
   let match = useRouteMatch();
   let { toursData } = props;
   return (
-    <div>
+    <ToursStyled>
       <Switch>
         <Route exact path={`${match.path}`}>
           {toursData.map((tour) => {
@@ -24,7 +34,7 @@ function Tours(props) {
           })}
         </Route>
       </Switch>
-    </div>
+    </ToursStyled>
   );
 }
 

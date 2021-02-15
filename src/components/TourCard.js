@@ -1,25 +1,5 @@
-import styled, { keyframes } from "styled-components";
-
-const backgroundMove = keyframes`
-  from {
-    transform: scale(1)
-    opacity: 1;
-  }
-  to {
-    transform: scale(1.1);
-    opacity: 0.5;
-  }
-`;
-
-const textShow = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
+import styled from "styled-components";
+import { backgroundZoomFade, fadeIn } from "../common/animations";
 
 const TourCardDiv = styled.div`
   position: relative;
@@ -32,11 +12,11 @@ const TourCardDiv = styled.div`
 
   &:hover {
     img {
-      animation: ${backgroundMove} 1s forwards;
+      animation: ${backgroundZoomFade} 1s forwards;
     }
 
     p {
-      animation: ${textShow} 1s forwards;
+      animation: ${fadeIn} 1s forwards;
     }
   }
 
@@ -46,11 +26,30 @@ const TourCardDiv = styled.div`
 
   p {
     opacity: 0;
+    color: ${(props) => props.theme.lightTextColor};
+    font-weight: 700;
+    text-shadow: ${(props) => props.theme.aroundShadow},
+      ${(props) => props.theme.sharpShadow};
   }
+
   img {
     position: absolute;
-    top: -500px;
+    top: -450px;
     z-index: 2;
+    filter: grayscale(0.3);
+  }
+
+  .tourName {
+    font-size: 24px;
+    text-transform: uppercase;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+
+  .tourPrice {
+    font-size: 18px;
   }
 `;
 
@@ -58,8 +57,8 @@ function TourCard(props) {
   return (
     <TourCardDiv>
       <img key={props.imageSrc} src={props.imageSrc} alt=""></img>
-      <p>{props.tourName}</p>
-      <p>${props.price}</p>
+      <p className="tourName">{props.tourName}</p>
+      <p className="tourPrice">${props.price}</p>
     </TourCardDiv>
   );
 }

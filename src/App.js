@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 //components
 import Nav from "./components/Nav";
@@ -12,8 +12,11 @@ import TourDetails from "./components/TourDetails";
 //data
 import toursData from "./assets/toursData.js";
 
+//theme
+import mainTheme from "./common/Theme.js";
+
 const StyledApp = styled.div`
-  margin-top: 60px;
+  height: 100%;
 `;
 
 function App() {
@@ -42,27 +45,32 @@ function App() {
   }, [cartItems]);
 
   return (
-    <StyledApp className="App">
-      <Nav cartItems={cartItems} total={totalPrice} />
-      <Switch>
-        <Route path="/checkout">
-          <CheckOut
-            cartItems={cartItems}
-            total={totalPrice}
-            onAddToCart={handleCartChanged}
-          />
-        </Route>
-        <Route path={"/tours/:tourName"}>
-          <TourDetails toursData={cartItems} onAddToCart={handleCartChanged} />
-        </Route>
-        <Route exact path="/tours">
-          <Tours toursData={toursData} />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </StyledApp>
+    <ThemeProvider theme={mainTheme}>
+      <StyledApp className="App">
+        <Nav cartItems={cartItems} total={totalPrice} />
+        <Switch>
+          <Route path="/checkout">
+            <CheckOut
+              cartItems={cartItems}
+              total={totalPrice}
+              onAddToCart={handleCartChanged}
+            />
+          </Route>
+          <Route path={"/tours/:tourName"}>
+            <TourDetails
+              toursData={cartItems}
+              onAddToCart={handleCartChanged}
+            />
+          </Route>
+          <Route exact path="/tours">
+            <Tours toursData={toursData} />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 

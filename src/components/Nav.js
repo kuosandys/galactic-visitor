@@ -8,27 +8,46 @@ const StyledNav = styled.nav`
   height: 60px;
   position: absolute;
   top: 0;
-  background-color: teal;
+  background-color: ${(props) => props.theme.mainColor};
   padding: 10px;
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
+  box-shadow: ${(props) => props.theme.bottomShadow};
+  z-index: 10;
 
   * {
     margin: 0;
+    color: ${(props) => props.theme.lightTextColor};
   }
 
   .navHome {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-  .navLinks {
-    font-size: 20px;
-    margin: 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: -0.7px;
 
     i {
       margin-right: 7px;
+    }
+  }
+
+  .navLinks {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+
+    .navLink {
+      margin: 0 20px;
+
+      :hover {
+        text-decoration: underline;
+      }
     }
   }
 `;
@@ -44,10 +63,18 @@ function Nav(props) {
   return (
     <StyledNav>
       <Link to="/" className="navHome">
+        <i className="fas fa-stroopwafel"></i>
         Galactic Visitor
       </Link>
       <div className="navLinks">
-        <Cart cartItems={cartItems} onExpandCart={handleExpandCart} />
+        <Link className="navLink" to="/tours">
+          Tours
+        </Link>
+        <Cart
+          cartItems={cartItems}
+          onExpandCart={handleExpandCart}
+          cartExpanded={expandCartView}
+        />
       </div>
       {expandCartView && <CartDetails cartItems={cartItems} total={total} />}
     </StyledNav>
