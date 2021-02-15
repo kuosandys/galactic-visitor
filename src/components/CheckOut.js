@@ -1,8 +1,9 @@
+import React from "react";
 import uniqid from "uniqid";
 import ItemQuantityForm from "./ItemQuantityForm";
 
 function CheckOut(props) {
-  const { cartItems, total, onAddToCart, onInputChanged } = props;
+  const { cartItems, total, onAddToCart } = props;
 
   return (
     <div>
@@ -24,7 +25,6 @@ function CheckOut(props) {
                   <td>
                     <ItemQuantityForm
                       onAddToCart={onAddToCart}
-                      onInputChanged={onInputChanged}
                       tourData={item}
                     />
                   </td>

@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import ItemQuantityForm from "./ItemQuantityForm";
@@ -10,7 +11,7 @@ const TourDetailsDiv = styled.div`
 
 function TourDetails(props) {
   let { tourName } = useParams();
-  let { toursData, onAddToCart, onInputChanged } = props;
+  let { toursData, onAddToCart } = props;
   const tourData = toursData.filter((tour) => tour.fileName === tourName)[0];
 
   return (
@@ -20,11 +21,7 @@ function TourDetails(props) {
       <p>First-Class Ticket Price: {tourData.price}</p>
       <p>Trip Distance: {tourData.distance}</p>
       <p>{tourData.description}</p>
-      <ItemQuantityForm
-        onAddToCart={onAddToCart}
-        onInputChanged={onInputChanged}
-        tourData={tourData}
-      />
+      <ItemQuantityForm onAddToCart={onAddToCart} tourData={tourData} />
     </TourDetailsDiv>
   );
 }
