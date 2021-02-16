@@ -13,10 +13,17 @@ const CheckOutDiv = styled.div`
   align-items: center;
   min-width: 250px;
   max-width: 750px;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   background-color: ${(props) => props.theme.lightTextColor};
   color: ${(props) => props.theme.darkTextColor};
+
+  h1 {
+    font-weight: 400;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: -0.4px;
+  }
 
   > p {
     text-transform: uppercase;

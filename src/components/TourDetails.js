@@ -30,6 +30,10 @@ const TourDetailsDiv = styled.div`
 
   h1 {
     margin-top: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: -0.4px;
   }
   img {
     width: 200px;
