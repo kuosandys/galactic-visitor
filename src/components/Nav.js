@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Cart, CartDetails } from "./Cart";
+import { useMediaQuery } from "react-responsive";
 
 const StyledNav = styled.nav`
   width: 100%;
@@ -55,6 +56,7 @@ const StyledNav = styled.nav`
 function Nav(props) {
   const { cartItems, total } = props;
   const [expandCartView, setExpandCartView] = useState(false);
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 500px)" });
 
   const handleExpandCart = () => {
     setExpandCartView(!expandCartView);
@@ -67,9 +69,11 @@ function Nav(props) {
         Galactic Visitor
       </Link>
       <div className="navLinks">
-        <Link className="navLink" to="/tours">
-          Tours
-        </Link>
+        {!isSmallScreen && (
+          <Link className="navLink" to="/tours">
+            Tours
+          </Link>
+        )}
         <Cart
           className="cart"
           cartItems={cartItems}

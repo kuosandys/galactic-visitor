@@ -39,16 +39,16 @@ const UpdateCartButton = styled(StyledButton)`
 
 function ItemQuantityForm(props) {
   const { onAddToCart, tourData } = props;
-  const [currentItem, setCurrentItem] = useState("");
-  const [currentCount, setCurrentCount] = useState(0);
+  const [currentCount, setCurrentCount] = useState(props.tourData.count);
 
   const handleItemsChanged = (e) => {
     setCurrentCount(+e.target.value);
-    setCurrentItem(e.target.name);
   };
 
   return (
-    <StyledForm onSubmit={(e) => onAddToCart(e, currentItem, currentCount)}>
+    <StyledForm
+      onSubmit={(e) => onAddToCart(e, props.tourData.fileName, currentCount)}
+    >
       <label>
         <i className="fas fa-user-astronaut"></i>
       </label>

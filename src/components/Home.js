@@ -33,6 +33,7 @@ const HomeDiv = styled.div`
     opacity: 0;
     animation: ${fadeIn} 2s forwards;
     animation-delay: 1s;
+    margin: 30px 10px;
   }
 `;
 

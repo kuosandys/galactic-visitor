@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { backgroundZoomFade, fadeIn } from "../common/animations";
+import { useMediaQuery } from "react-responsive";
 
 const TourCardDiv = styled.div`
   position: relative;
@@ -25,7 +26,7 @@ const TourCardDiv = styled.div`
   }
 
   p {
-    opacity: 0;
+    opacity: ${(props) => (props.isSmallScreen ? "1" : "0")};
     color: ${(props) => props.theme.lightTextColor};
     font-weight: 700;
     text-shadow: ${(props) => props.theme.aroundShadow},
@@ -54,8 +55,9 @@ const TourCardDiv = styled.div`
 `;
 
 function TourCard(props) {
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 500px)" });
   return (
-    <TourCardDiv>
+    <TourCardDiv isSmallScreen={isSmallScreen}>
       <img key={props.imageSrc} src={props.imageSrc} alt=""></img>
       <p className="tourName">{props.tourName}</p>
       <p className="tourPrice">${props.price}</p>

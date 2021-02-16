@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import uniqid from "uniqid";
 import ItemQuantityForm from "./ItemQuantityForm";
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
 
 const CheckOutDiv = styled.div`
   position: relative;
@@ -44,8 +45,8 @@ const StyledCheckOutItem = styled.div`
   flex-wrap: no-wrap;
   flex-direction: row;
   height: 200px;
-  min-width: 350px;
-  margin: 5px;
+  min-width: 300px;
+  margin: 5px auto;
   padding: 20px 10px;
   border-radius: 3px;
   box-shadow: ${(props) => props.theme.lightShadow};
@@ -58,7 +59,7 @@ const StyledCheckOutItem = styled.div`
     flex-wrap: no-wrap;
     flex-direction: column;
     align-items: stretch;
-    text-align: left;
+    text-align: ${(props) => (props.isSmallScreen ? "center" : "left")};
     justify-content: space-between;
     font-size: 16px;
     > * {
@@ -88,7 +89,7 @@ const StyledCheckOutItem = styled.div`
     }
 
     .subtotal {
-      text-align: right;
+      text-align: ${(props) => (props.isSmallScreen ? "center" : "right")};
       text-transform: uppercase;
       font-size: 14px;
       color: ${(props) => props.theme.secondaryColor};
@@ -105,6 +106,7 @@ const StyledCheckOutItem = styled.div`
     height: 100%;
     width: auto;
     margin: auto;
+    display: ${(props) => (props.isSmallScreen ? "none" : "initial")};
   }
 `;
 
@@ -139,9 +141,12 @@ function CheckOut(props) {
 }
 
 function CheckOutItem(props) {
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 400px)" });
+
+  console.log(isSmallScreen);
   return (
-    <StyledCheckOutItem>
-      <img src={props.imageFile} alt="" />
+    <StyledCheckOutItem isSmallScreen={isSmallScreen}>
+      <img src={props.imageFile} alt=""></img>
       <div>
         <Link to={`tours/${props.fileName}`}>
           <p className="title">{props.name}</p>
