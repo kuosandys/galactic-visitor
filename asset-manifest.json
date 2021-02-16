@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/galactic-visitor/static/css/main.3619cae1.chunk.css",
-    "main.js": "/galactic-visitor/static/js/main.0a4eb580.chunk.js",
-    "main.js.map": "/galactic-visitor/static/js/main.0a4eb580.chunk.js.map",
+    "main.js": "/galactic-visitor/static/js/main.a9cfe7cd.chunk.js",
+    "main.js.map": "/galactic-visitor/static/js/main.a9cfe7cd.chunk.js.map",
     "runtime-main.js": "/galactic-visitor/static/js/runtime-main.e3623f19.js",
     "runtime-main.js.map": "/galactic-visitor/static/js/runtime-main.e3623f19.js.map",
     "static/js/2.f25bb846.chunk.js": "/galactic-visitor/static/js/2.f25bb846.chunk.js",
@@ -32,6 +32,6 @@
     "static/js/runtime-main.e3623f19.js",
     "static/js/2.f25bb846.chunk.js",
     "static/css/main.3619cae1.chunk.css",
-    "static/js/main.0a4eb580.chunk.js"
+    "static/js/main.a9cfe7cd.chunk.js"
   ]
 }
