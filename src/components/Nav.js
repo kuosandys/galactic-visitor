@@ -71,12 +71,15 @@ function Nav(props) {
           Tours
         </Link>
         <Cart
+          className="cart"
           cartItems={cartItems}
           onExpandCart={handleExpandCart}
           cartExpanded={expandCartView}
         />
       </div>
-      {expandCartView && <CartDetails cartItems={cartItems} total={total} />}
+      {expandCartView && (
+        <CartDetails className="cart" cartItems={cartItems} total={total} />
+      )}
     </StyledNav>
   );
 }
