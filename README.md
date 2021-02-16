@@ -1,10 +1,10 @@
-# Galactic Visitor\* Shopping Cart Application
+# _Galactic Visitor_ Shopping Cart Application
 
 This is a web app designed for a fictional space travel company. We've all been dreaming of travel for the past year - why not dream a little further? (_Project Disclaimer: see below_)
 
 :zap:[Live Demo](https://kuosandys.github.io/):zap:
 
-![Demo Image](demo.png)
+![Demo Image](./demo.png)
 
 ## Purpose
 

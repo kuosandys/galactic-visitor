@@ -65,7 +65,7 @@ function App() {
           <Route exact path="/tours">
             <Tours toursData={toursData} />
           </Route>
-          <Route exact path={process.env.PUBLIC_URL + "/"}>
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>
