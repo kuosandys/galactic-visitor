@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  padding: 7px 10px;
+  padding: 10px 14px;
   border: none;
   border-radius: 3px;
   text-decoration: none;
@@ -9,7 +9,6 @@ const StyledButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
-  height: 30px;
   background: ${(props) => props.theme.mainColor};
   color: ${(props) => props.theme.lightTextColor};
 
