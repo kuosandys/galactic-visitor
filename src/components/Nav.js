@@ -9,7 +9,7 @@ const StyledNav = styled.nav`
   position: absolute;
   top: 0;
   background-color: ${(props) => props.theme.mainColor};
-  padding: 10px;
+  padding: 10px 20px;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -43,7 +43,7 @@ const StyledNav = styled.nav`
     font-weight: 700;
 
     .navLink {
-      margin: 0 20px;
+      margin: 0 10px;
 
       :hover {
         text-decoration: underline;

@@ -9,8 +9,8 @@ const StyledForm = styled.form`
   justify-content: center;
   border-radius: 3px;
 
-  * {
-    margin: 0 3px;
+  > * {
+    margin: 0 4px;
   }
 
   input {
@@ -28,7 +28,7 @@ const StyledForm = styled.form`
   }
 
   label {
-    color: ${(props) => props.theme.lightTextColor};
+    color: ${(props) => props.theme.darkTextColor};
     font-size: 20px;
   }
 `;
@@ -61,7 +61,6 @@ function ItemQuantityForm(props) {
         onChange={handleItemsChanged}
       ></input>
       <UpdateCartButton type="submit">Update Cart</UpdateCartButton>
-      <p></p>
     </StyledForm>
   );
 }

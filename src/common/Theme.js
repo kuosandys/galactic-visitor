@@ -8,6 +8,7 @@ const mainTheme = {
     "0px 5px 50px hsla(0, 0%, 20%, 0.5), 0px -5px 50px hsla(0, 0%, 20%, 0.5), 5px 0px 50px hsla(0, 0%, 20%, 0.5), -5px 0px 50px hsla(0, 0%, 20%, 0.5)",
   sharpShadow:
     "0px 3px 10px hsla(0, 0%, 20%, 0.7), 0px -3px 10px hsla(0, 0%, 20%, 0.7), 3px 0px 10px hsla(0, 0%, 20%, 0.7), -3px 0px 10px hsla(0, 0%, 20%, 0.7)",
+  secondaryFont: "Times New Roman",
 };
 
 export default mainTheme;
