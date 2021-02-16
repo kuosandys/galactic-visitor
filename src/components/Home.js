@@ -52,9 +52,9 @@ function Home() {
   return (
     <HomeDiv>
       <h1>The galaxy at your fingertips</h1>
-      <ToursLink>
-        <Link to="/tours">Explore Our Tours</Link>
-      </ToursLink>
+      <Link to="/tours">
+        <ToursLink>Explore Our Tours</ToursLink>
+      </Link>
     </HomeDiv>
   );
 }
