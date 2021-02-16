@@ -1,6 +1,7 @@
 const mainTheme = {
   mainColor: "hsl(189, 38%, 51%)",
   secondaryColor: "hsl(189,38%,61%)",
+  lightSecondaryColor: "hsl(189, 38%, 85%)",
   lightTextColor: "hsl(0, 0%, 100%)",
   darkTextColor: "hsl(193, 18%, 24%)",
   bottomShadow: "1px 10px 10px hsla(0, 0%, 5%, 0.3)",

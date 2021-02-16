@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import uniqid from "uniqid";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import StyledButton from "./StyledButton";
@@ -7,7 +6,7 @@ import StyledButton from "./StyledButton";
 const CartDetailsDiv = styled.div`
   position: absolute;
   top: 60px;
-  right: 0;
+  right: 20px;
   z-index: 5;
   padding-bottom: 5px;
   background: ${(props) => props.theme.lightTextColor};
@@ -29,7 +28,7 @@ const CartDetailsDiv = styled.div`
     text-align: right;
     color: ${(props) => props.theme.darkTextColor};
     font-size: 14px;
-    border-bottom: 0.5px solid ${(props) => props.theme.secondaryColor};
+    border-bottom: 0.5px solid ${(props) => props.theme.lightSecondaryColor};
 
     span {
       font-weight: 700;
@@ -43,7 +42,7 @@ const CartItemStyled = styled.div`
   height: 80px;
   position: relative;
   padding: 20px;
-  border-bottom: 0.5px solid ${(props) => props.theme.secondaryColor};
+  border-bottom: 0.5px solid ${(props) => props.theme.lightSecondaryColor};
 
   img {
     height: 60px;
@@ -134,9 +133,10 @@ function CartDetails(props) {
           return null;
         }
       })}
-      <StyledButton>
-        <Link to="/checkout">Check Out</Link>
-      </StyledButton>
+      <Link to="/checkout">
+        {" "}
+        <StyledButton>Check Out </StyledButton>
+      </Link>
     </CartDetailsDiv>
   );
 }
