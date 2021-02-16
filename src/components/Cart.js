@@ -80,7 +80,11 @@ const CartItemStyled = styled.div`
 
 const CartIcon = styled(StyledButton)`
   font-weight: 700;
-  font-size: 16px;
+
+  i {
+    margin-right: 5px;
+  }
+
   &.active {
     background: ${(props) => props.theme.secondaryColor};
   }

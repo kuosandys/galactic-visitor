@@ -12,11 +12,6 @@ const StyledButton = styled.button`
   background: ${(props) => props.theme.mainColor};
   color: ${(props) => props.theme.lightTextColor};
 
-  i {
-    font-size: 14px;
-    margin-right: 7px;
-  }
-
   :hover {
     background: ${(props) => props.theme.secondaryColor};
     cursor: pointer;
