@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Cart, CartDetails } from "./Cart";
 import { useMediaQuery } from "react-responsive";
@@ -33,7 +33,12 @@ function Nav(props) {
         />
       </div>
       {expandCartView && (
-        <CartDetails className="cart" cartItems={cartItems} total={total} />
+        <CartDetails
+          className="cart"
+          cartItems={cartItems}
+          total={total}
+          handleClickOutside={handleExpandCart}
+        />
       )}
     </StyledNav>
   );

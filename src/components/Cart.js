@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import uniqid from "uniqid";
 import { CartDetailsDiv, CartItemStyled, CartIcon } from "./CartStyled";
@@ -27,9 +27,26 @@ function Cart(props) {
 }
 
 function CartDetails(props) {
-  const { cartItems, total } = props;
+  const { cartItems, total, handleClickOutside } = props;
+  const ref = useRef();
+  const buttonRef = useRef();
+
+  const handleClick = (e) => {
+    if (
+      !ref.current ||
+      !ref.current.contains(e.target) ||
+      buttonRef.current.contains(e.target)
+    ) {
+      handleClickOutside();
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, []);
+
   return (
-    <CartDetailsDiv>
+    <CartDetailsDiv ref={ref}>
       <p>
         Total: <span>${total}</span>
       </p>
@@ -51,7 +68,7 @@ function CartDetails(props) {
       })}
       <Link to="/checkout">
         {" "}
-        <StyledButton>Check Out </StyledButton>
+        <StyledButton ref={buttonRef}>Check Out </StyledButton>
       </Link>
     </CartDetailsDiv>
   );
